@@ -8,8 +8,6 @@ name: Docker
 on:
   push:
     branches: [ "master" ]
-    # Publish semver tags as releases.
-    tags: [ 'v*.*.*' ]
   pull_request:
     branches: [ "master" ]
 
@@ -73,7 +71,7 @@ jobs:
         with:
           context: .
           push: ${{ github.event_name != 'pull_request' }}
-          tags: ${{ github.sha }}, latest
+          tags: ${{ github.sha }}
           labels: ${{ steps.meta.outputs.labels }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
@@ -88,7 +86,7 @@ jobs:
         if: ${{ github.event_name != 'pull_request' }}
         env:
           # https://docs.github.com/en/actions/security-guides/security-hardening-for-github-actions#using-an-intermediate-environment-variable
-          TAGS: ${{ github.sha }}, latest
+          TAGS: ${{ github.sha }}
           DIGEST: ${{ steps.build-and-push.outputs.digest }}
         # This step uses the identity token to provision an ephemeral certificate
         # against the sigstore community Fulcio instance.

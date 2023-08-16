@@ -9,6 +9,6 @@ COPY requirements.txt .
 
 RUN pip install -r requirements.txt
 
-COPY RWKV/ RWKV/
+COPY rwkv-git/ RWKV/.git/
 
 RUN cd RWKV && git pull origin main && cd /app && mv RWKV/RWKV-v4neo/src /app/src && rm -rf RWKV

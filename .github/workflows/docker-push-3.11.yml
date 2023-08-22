@@ -7,9 +7,7 @@ jobs:
     build:
         runs-on: ubuntu-latest
         steps:
-        - uses: actions/checkout@v3
-        - name: set up QEMU
-          uses: docker/setup-qemu-action@v2
+        - uses: actions/checkout@v2
         - name: set up Docker Buildx
           uses: docker/setup-buildx-action@v2
         - name: Login to GitHub Container Registry
@@ -23,7 +21,6 @@ jobs:
           with:
             context: .
             file: ./Dockerfile.3.11
-            platforms: linux/amd64,linux/arm64
             push: true
             tags: ghcr.io/${{ github.repository }}/base-3-11:latest, ghcr.io/${{ github.repository }}/base-3-11:${{ github.sha }}
             labels: org.opencontainers.image.source = "https://github.com/maa123/rwkvimage"

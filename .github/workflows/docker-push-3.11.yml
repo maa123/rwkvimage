@@ -1,4 +1,4 @@
-name: Docker GHCR Push Python 3.12
+name: Docker GHCR Push Python 3.11
 on:
   push:
     branches:
@@ -20,7 +20,7 @@ jobs:
           uses: docker/build-push-action@v4
           with:
             context: .
-            file: ./Dockerfile.3.12
+            file: ./Dockerfile.3.11
             push: true
             tags: ghcr.io/${{ github.repository }}/base:latest, ghcr.io/${{ github.repository }}/base-3-12:${{ github.sha }}
             labels: org.opencontainers.image.source = "https://github.com/maa123/rwkvimage"

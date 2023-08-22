@@ -22,5 +22,5 @@ jobs:
             context: .
             file: ./Dockerfile.3.11
             push: true
-            tags: ghcr.io/${{ github.repository }}/base:latest, ghcr.io/${{ github.repository }}/base-3-11:${{ github.sha }}
+            tags: ghcr.io/${{ github.repository }}/base-3-11:latest, ghcr.io/${{ github.repository }}/base-3-11:${{ github.sha }}
             labels: org.opencontainers.image.source = "https://github.com/maa123/rwkvimage"

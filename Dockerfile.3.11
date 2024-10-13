@@ -7,7 +7,7 @@ RUN apt-get update && apt-get install -y git cmake build-essential && rm -rf /va
 
 RUN git clone --recursive https://github.com/saharNooby/rwkv.cpp.git --depth 1 . && rm -rf .git
 
-RUN cmake . && cmake --build . --config Release && mkdir src && mkdir src/src && cp rwkv/rwkv_cpp_* src/src/ && cp librwkv.so src/
+RUN cmake . && cmake --build . --config Release && mkdir src && cp librwkv.so src/
 
 COPY requirements.txt .
 

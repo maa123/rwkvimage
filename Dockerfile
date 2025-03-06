@@ -1,5 +1,5 @@
 #Python 3.10
-FROM python:3.10-slim as build
+FROM python:3.13-slim as build
 
 WORKDIR /app
 
@@ -15,7 +15,7 @@ RUN pip install -r requirements.txt --user --no-cache-dir
 
 #Multi-stage build
 
-FROM python:3.10-slim as base
+FROM python:3.13-slim as base
 
 WORKDIR /app
 
